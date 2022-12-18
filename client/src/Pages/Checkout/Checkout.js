@@ -25,7 +25,7 @@ const Checkout = () => {
       phone,
       address,
       postcode,
-      currency
+      currency,
     };
 
     // if(phone.length > 10){
@@ -35,7 +35,7 @@ const Checkout = () => {
 
     // }
 
-    fetch("http://localhost:5000/orders", {
+    fetch("https://genius-car-server-nine-sigma.vercel.app/orders", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -52,7 +52,10 @@ const Checkout = () => {
 
   return (
     <div>
-      <form onSubmit={handlePlaceOrder} className="flex items-center justify-between">
+      <form
+        onSubmit={handlePlaceOrder}
+        className="flex items-center justify-between"
+      >
         <div>
           <h2 className="text-4xl">You are about to order: {title}</h2>
           <h4 className="text-3xl">Price: {price}</h4>
@@ -87,23 +90,22 @@ const Checkout = () => {
               className="input input-ghost w-full  input-bordered"
               readOnly
             />
-          <select
-            defaultValue="BDT"
-            name="currency"
-            className="select select-bordered max-w-xs"
-          >
-            <option value="BDT">BDT</option>
-            <option value="USD">USD</option>
-          </select>
+            <select
+              defaultValue="BDT"
+              name="currency"
+              className="select select-bordered max-w-xs"
+            >
+              <option value="BDT">BDT</option>
+              <option value="USD">USD</option>
+            </select>
 
-          <input
-            type="text"
-            name="postcode"
-            placeholder="Your Postcode"
-            className="input input-ghost w-full  input-bordered"
-          />
+            <input
+              type="text"
+              name="postcode"
+              placeholder="Your Postcode"
+              className="input input-ghost w-full  input-bordered"
+            />
           </div>
-
 
           <textarea
             name="address"

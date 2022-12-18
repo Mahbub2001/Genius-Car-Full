@@ -11,7 +11,7 @@ const Services = () => {
   const searchRef = useRef();
   useEffect(() => {
     fetch(
-      `http://localhost:5000/services?search=${search}&order=${
+      `https://genius-car-server-nine-sigma.vercel.app/services?search=${search}&order=${
         isAsc ? "asc" : "desc"
       }`
     )
